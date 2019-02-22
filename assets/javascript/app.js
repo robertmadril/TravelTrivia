@@ -27,3 +27,24 @@ When user reaches end of game stop all timers. Display win, loss, and restart bu
 Restart button will begin timer and populate first question
 
 */
+
+var count = 30;
+var intervalId;
+
+$("#time-counter").text(count);
+
+function timeInterval() {
+    intervalId = setInterval(counter, 1000);
+}
+
+function counter() {
+    count--;
+    $("#time-counter").text(count);
+    if (count < 1) {
+        count = 0;
+        clearInterval(intervalId);
+        //call function to display answer
+    };
+}
+
+timeInterval();
