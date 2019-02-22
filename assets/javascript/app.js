@@ -1,40 +1,17 @@
-/*
-
-Pseudocode:
-
-Variables
-
-Functions
-
-Execution
-
-Show home screen
-Start game by clicking start button
-Populate first question with clickable answers and timer starts from x seconds
-{
-If user clicks wrong answer, show answer and image for x seconds, loss count +1. Stop timer.
-If user clicks right answer, show answer and image for x seconds, win count +1. Stop timer.
-else if timer is zero, show answer and image for x seconds, loss count +1. Stop timer.
-
-
-Answer is populated for x seconds before next question is shown. New timer started
-
-}
-Repeat process for all questions
-
-When user reaches end of game stop all timers. Display win, loss, and restart button
-
-Restart button will begin timer and populate first question
-
-*/
-
 var count = 30;
 var intervalId;
+var timeoutId;
 
-$("#time-counter").text(count);
-
-function timeInterval() {
+//function to start question and answer timer
+function startTimer() {
     intervalId = setInterval(counter, 1000);
+    clearTimeout(timeoutId);
+}
+
+//function to display answer timer
+function displayAnswerTimer() {
+    timeoutId = setTimeout(displayAnswer, 5000);
+    clearInterval(intervalId);
 }
 
 function counter() {
@@ -43,8 +20,65 @@ function counter() {
     if (count < 1) {
         count = 0;
         clearInterval(intervalId);
-        //call function to display answer
+        displayAnswerTimer();
     };
 }
 
-timeInterval();
+//general function to display answer
+
+function displayAnswer() {
+//clear questions and answers field
+//display correct answer and img
+
+}
+
+//general function to populate questions into HTML
+function displayQuestion() {
+//clear answers field
+//display question and four clickable answers 
+startTimer();
+}
+
+//function to display last screen
+function displayFinalScore() {
+//clear all fields
+//insert wins
+//insert losses
+//clearInterval clearTimeout
+//insert restartGame() functionality and display restart button
+
+}
+
+//restart game function without refreshing page
+function restartGame() {
+//startTimer
+//displayQuestion from first question. isFinished?
+}
+
+
+$("#start").on("click", function () {
+
+    $("#start-cont").empty();
+
+    $("#time-cont").html('Time Remaining: <span id="time-counter">30</span>');
+
+    //call displayQuestion and populate correct answer into var
+
+
+
+});
+
+/*
+
+$(".guesses").on("click", function() {
+    guess = $(this).attr("answerId");
+    if (answer === guess) {
+        win++
+        displayAnswerTimer();
+    }
+    else{
+        loss++;
+        displayAnswerTimer();
+    }
+})
+*/
