@@ -30,7 +30,7 @@ var qAndA = [
     },
 ]
 
-var count = 30;
+var count = 3;
 var intervalId;
 var timeoutId;
 var questionNum = 0;
@@ -58,7 +58,7 @@ function counter() {
         clearInterval(intervalId);
         displayAnswer();
         answerTimer();
-        console.log("Zero")
+        loss++;
     }
 };
 
@@ -74,7 +74,7 @@ function displayAnswer() {
     questionNum++;
 }
 
-//general function to populate questions into HTML
+//general function to populate questions into HTML and start game play
 function display() {
     if (questionNum > qAndA.length - 1) {
         displayFinalScore();
@@ -87,11 +87,11 @@ function display() {
     $("#answers").append(qAndA[questionNum].guess3);
     $("#answers").append(qAndA[questionNum].guess4);
     startTimer();
-    gamePlay();
+    guessClick();
     }
 }
 
-function gamePlay() {
+function guessClick() {
 
     $(".guesses").on("click", function () {
         guess = $(this).attr("answerID");
@@ -153,5 +153,5 @@ $("#start").on("click", function () {
 
 
 /*
-Can't click on second guess answers
+Restart button doesn't work
 */
