@@ -1,21 +1,31 @@
 var qAndA = [
     {
         question: '<div class="question-display">This is question 1</div>',
-        guess1: '<button class="guesses" answerID="0">This is answer one, question 1</button>',
+        guess1: '<div class="guesses" answerID="0">This is answer one, question 1</div',
         guess2: '<div class="guesses" answerID="0">This is answer two, question 1</div>',
         guess3: '<div class="guesses" answerID="1">This is answer three, question 1</div>',
         guess4: '<div class="guesses" answerID="0">This is answer four, question 1</div>',
-        img: '<img src="image-1" alt="image">',
+        img: '<img src="https://placehold.it/150" alt="image">',
         correct: '<div class="answer-display">The answer is three</div',
     },
 
     {
         question: '<div class="question-display">This is question 2</div>',
-        guess1: '<div class="guess-display" answerID="0">This is answer one, question 2</div>',
-        guess2: '<div class="guess-display" answerID="0">This is answer two, question 2</div>',
-        guess3: '<div class="guess-display" answerID="1">This is answer three, question 1</div>',
-        guess4: '<div class="guess-display" answerID="0">This is answer four, question 1</div>',
-        img: '<img src="image-1" alt="image">',
+        guess1: '<div class="guesses" answerID="0">This is answer one, question 2</div>',
+        guess2: '<div class="guesses" answerID="0">This is answer two, question 2</div>',
+        guess3: '<div class="guesses" answerID="1">This is answer three, question 2</div>',
+        guess4: '<div class="guesses" answerID="0">This is answer four, question 2</div>',
+        img: '<img src="https://placehold.it/200" alt="image">',
+        correct: '<div class="answer-display">The answer is three</div',
+    },
+
+    {
+        question: '<div class="question-display">This is question 3</div>',
+        guess1: '<div class="guesses" answerID="0">This is answer one, question 3</div>',
+        guess2: '<div class="guesses" answerID="0">This is answer two, question 3</div>',
+        guess3: '<div class="guesses" answerID="1">This is answer three, question 3</div>',
+        guess4: '<div class="guesses" answerID="0">This is answer four, question 3</div>',
+        img: '<img src="https://placehold.it/250" alt="image">',
         correct: '<div class="answer-display">The answer is three</div',
     },
 ]
@@ -36,7 +46,7 @@ function startTimer() {
 
 //function to display answer timer
 function answerTimer() {
-    timeoutId = setTimeout(displayQuestion, 5000);
+    timeoutId = setTimeout(display, 5000);
     clearInterval(intervalId);
     count = 30;
 }
@@ -46,8 +56,12 @@ function counter() {
     $("#time-counter").text(count);
     if (count < 1) {
         clearInterval(intervalId);
-    };
-}
+        displayAnswer();
+        answerTimer();
+        console.log("Zero")
+    }
+};
+
 
 //general function to display answer
 
@@ -56,13 +70,16 @@ function displayAnswer() {
     $("#time-cont").empty();
     $("#questions").empty()
     $("#answers").empty();
-    //display correct answer and img
+    $("#answers").html(qAndA[questionNum].img);
     questionNum++;
-
 }
 
 //general function to populate questions into HTML
-function displayQuestion() {
+function display() {
+    if (questionNum > qAndA.length - 1) {
+        displayFinalScore();
+    }
+    else {
     $("#time-cont").html('Time Remaining: <span id="time-counter">30</span>');
     $("#questions").html(qAndA[questionNum].question);
     $("#answers").html(qAndA[questionNum].guess1);
@@ -70,35 +87,11 @@ function displayQuestion() {
     $("#answers").append(qAndA[questionNum].guess3);
     $("#answers").append(qAndA[questionNum].guess4);
     startTimer();
-}
-
-//function to display last screen
-function displayFinalScore() {
-    //clear all fields
-    //insert wins
-    //insert losses
-    //clearInterval clearTimeout
-    //insert restartGame() functionality and display restart button
-
-}
-
-//restart game function without refreshing page
-function restartGame() {
-    //startTimer
-    //displayQuestion from first question. isFinished?
-}
-
-
-$("#start").on("click", function () {
-
-    $("#start-cont").empty();
-
-    displayQuestion();
-
-    if (count < 1) {
-        displayAnswer();
-        answerTimer();
+    gamePlay();
     }
+}
+
+function gamePlay() {
 
     $(".guesses").on("click", function () {
         guess = $(this).attr("answerID");
@@ -113,12 +106,52 @@ $("#start").on("click", function () {
             answerTimer();
         }
     })
+}
+
+//function to display last screen
+function displayFinalScore() {
+    //test
+    console.log("final score");
+    //clear all field
+    $("#time-cont").empty();
+    $("#questions").empty()
+    $("#answers").empty();
+    //insert wins
+    $("#wins").html("<p>You guessed " + win + " answers correctly</p>")
+    //insert losses
+    $("#losses").html("<p>You guessed " + loss + " answers incorrectly</p>")
+    //clearInterval clearTimeout
+    clearTimeout(timeoutId);
+    clearInterval(intervalId);
+    //insert restartGame() functionality and display restart button
+    $("#restart").html('<button id="restart-btn">RESTART</button>');
+    restartGame();
+}
 
 
+
+//restart game function without refreshing page
+function restartGame() {
+    $("#restart-btn").on("click", function () {
+        win = 0;
+        loss = 0;
+        //startTimer
+        //displayQuestion from first question.
+        display();
+    })
+}
+
+
+$("#start").on("click", function () {
+
+    $("#start-cont").empty();
+
+    display();
 
 });
 
+
+
 /*
-Counter does not displayAnswer() when reaching 0;
 Can't click on second guess answers
 */
