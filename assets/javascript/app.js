@@ -135,23 +135,23 @@ function restartGame() {
     $("#restart-btn").on("click", function () {
         win = 0;
         loss = 0;
-        //startTimer
-        //displayQuestion from first question.
+        questionNum = 0;
+        $("#restart").empty();
+        $("#wins").empty();
+        $("#losses").empty();
+        //display starts game at question 1
         display();
     })
 }
 
 
 $("#start").on("click", function () {
-
     $("#start-cont").empty();
-
     display();
-
 });
 
 
 
 /*
-Restart button doesn't work
+Need styling and actual questions
 */
