@@ -1,0 +1,19 @@
+#container {
+    width:720px;
+    height: 697px;
+    margin: auto;
+    background-color: grey;
+    opacity: 0.5;
+    position: relative;
+}
+
+#start-cont {
+    position: absolute;
+    top:50%;
+    left:50%;
+}
+
+.game-play {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rebeccapurple;
+}
