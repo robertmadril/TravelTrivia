@@ -159,7 +159,6 @@ function guessClick() {
 
 To Do:
 
-Clean formatting
-add html questions
+add html questions/answers
 question-specific css positioning
 */
