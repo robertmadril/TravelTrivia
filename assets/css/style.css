@@ -1,21 +1,33 @@
 #container {
-    width:720px;
-    height: 697px;
-    margin: auto;
+    width:1000px;
+    height: 660px;
+    margin: 20px auto 0px auto;
     background-color: grey;
     opacity: 0.5;
     position: relative;
+    background-image: url("../images/world-map.jpg");
+    background-size: 100%;
+    font-family: 'Old Standard TT', serif;
+    color: black;
 }
 
 #start-cont {
     position: absolute;
-    top:50%;
-    left:50%;
+    top:40%;
+    left:40%;
+
+}
+
+#start {
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 36px;
+    font-family: 'Old Standard TT', serif;
+    background-color: lightblue;
 }
 
 .game-play {
-    font-family: Arial, Helvetica, sans-serif;
-    color: rebeccapurple;
+
 }
 
 #answers div:hover {

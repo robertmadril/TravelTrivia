@@ -1,10 +1,11 @@
 var qAndA = [
     {
-        question: '<div class="question-display">This is question 1</div>',
-        guess1: '<div class="guesses" answerID="0">This is answer one, question 1</div',
-        guess2: '<div class="guesses" answerID="0">This is answer two, question 1</div>',
-        guess3: '<div class="guesses" answerID="1">This is answer three, question 1</div>',
-        guess4: '<div class="guesses" answerID="0">This is answer four, question 1</div>',
+        question: '<div class="question-display">What nations population, on average, takes the longest time to eat their meals?</div>',
+        guess1: '<div class="guesses" id="spain" answerID="0">Spain</div',
+        guess2: '<div class="guesses" id="argentina"answerID="0">Argentina</div>',
+        guess3: '<div class="guesses" id="france" answerID="1">France</div>',
+        guess4: '<div class="guesses" id="india" answerID="0">India</div>',
+        //display flags here
         img: '<img src="https://placehold.it/150" alt="image">',
         correct: '<div class="answer-display">The answer is three</div',
     },
@@ -30,7 +31,7 @@ var qAndA = [
     },
 ]
 
-var count = 3;
+var count = 30;
 var intervalId;
 var timeoutId;
 var questionNum = 0;
