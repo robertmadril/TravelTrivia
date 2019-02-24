@@ -1,3 +1,5 @@
+//object containing trivia questions and answers
+
 var qAndA = [
     {
         question: '<div class="question-display">What nations population, on average, takes the longest time to eat their meals?</div>',
@@ -31,6 +33,7 @@ var qAndA = [
     },
 ]
 
+//global variables
 var count = 30;
 var intervalId;
 var timeoutId;
@@ -38,20 +41,17 @@ var questionNum = 0;
 var win = 0;
 var loss = 0;
 
+//general function to display answer
+function displayAnswer() {
+    //clear questions and answers field
+    $("#time-cont").empty();
+    $("#questions").empty()
+    $("#answers").empty();
+    $("#answers").html(qAndA[questionNum].img);
+    questionNum++;
+};
 
-//function to start question and answer timer
-function startTimer() {
-    intervalId = setInterval(counter, 1000);
-    clearTimeout(timeoutId);
-}
-
-//function to display answer timer
-function answerTimer() {
-    timeoutId = setTimeout(display, 5000);
-    clearInterval(intervalId);
-    count = 30;
-}
-
+//counter function
 function counter() {
     count--;
     $("#time-counter").text(count);
@@ -63,35 +63,79 @@ function counter() {
     }
 };
 
+//function to start question and answer timer
+function startTimer() {
+    intervalId = setInterval(counter, 1000);
+    clearTimeout(timeoutId);
+};
 
-//general function to display answer
+//function to display answer timer
+function answerTimer() {
+    timeoutId = setTimeout(display, 5000);
+    clearInterval(intervalId);
+    count = 30;
+};
 
-function displayAnswer() {
-    //clear questions and answers field
+//function to display last screen
+function displayFinalScore() {
+    //test
+    console.log("final score");
+    //clear all fields
     $("#time-cont").empty();
     $("#questions").empty()
     $("#answers").empty();
-    $("#answers").html(qAndA[questionNum].img);
-    questionNum++;
-}
+    //insert wins
+    $("#wins").html("<p>You guessed " + win + " answers correctly</p>")
+    //insert losses
+    $("#losses").html("<p>You guessed " + loss + " answers incorrectly</p>")
+    //clearInterval clearTimeout
+    clearTimeout(timeoutId);
+    clearInterval(intervalId);
+    //insert restartGame() functionality and display restart button
+    $("#restart").html('<button id="restart-btn">RESTART</button>');
+    restartGame();
+};
 
-//general function to populate questions into HTML and start game play
+//restart game function without refreshing page
+function restartGame() {
+    $("#restart-btn").on("click", function () {
+        win = 0;
+        loss = 0;
+        questionNum = 0;
+        $("#restart").empty();
+        $("#wins").empty();
+        $("#losses").empty();
+        //display starts game at question 1
+        display();
+    })
+};
+
+
+//game play primary functions
+//start game function
+$("#start").on("click", function () {
+    $("#start-cont").empty();
+    display();
+});
+
+//general function to populate questions into HTML and start/continue game play
 function display() {
     if (questionNum > qAndA.length - 1) {
         displayFinalScore();
     }
     else {
-    $("#time-cont").html('Time Remaining: <span id="time-counter">30</span>');
-    $("#questions").html(qAndA[questionNum].question);
-    $("#answers").html(qAndA[questionNum].guess1);
-    $("#answers").append(qAndA[questionNum].guess2);
-    $("#answers").append(qAndA[questionNum].guess3);
-    $("#answers").append(qAndA[questionNum].guess4);
-    startTimer();
-    guessClick();
+        $("#time-cont").html('Time Remaining: <span id="time-counter">30</span>');
+        $("#questions").html(qAndA[questionNum].question);
+        $("#answers").html(qAndA[questionNum].guess1);
+        $("#answers").append(qAndA[questionNum].guess2);
+        $("#answers").append(qAndA[questionNum].guess3);
+        $("#answers").append(qAndA[questionNum].guess4);
+        startTimer();
+        guessClick();
     }
-}
+};
 
+//guess click function that populates correct answer ID and checks if win or lose round
 function guessClick() {
 
     $(".guesses").on("click", function () {
@@ -107,52 +151,15 @@ function guessClick() {
             answerTimer();
         }
     })
-}
-
-//function to display last screen
-function displayFinalScore() {
-    //test
-    console.log("final score");
-    //clear all field
-    $("#time-cont").empty();
-    $("#questions").empty()
-    $("#answers").empty();
-    //insert wins
-    $("#wins").html("<p>You guessed " + win + " answers correctly</p>")
-    //insert losses
-    $("#losses").html("<p>You guessed " + loss + " answers incorrectly</p>")
-    //clearInterval clearTimeout
-    clearTimeout(timeoutId);
-    clearInterval(intervalId);
-    //insert restartGame() functionality and display restart button
-    $("#restart").html('<button id="restart-btn">RESTART</button>');
-    restartGame();
-}
-
-
-
-//restart game function without refreshing page
-function restartGame() {
-    $("#restart-btn").on("click", function () {
-        win = 0;
-        loss = 0;
-        questionNum = 0;
-        $("#restart").empty();
-        $("#wins").empty();
-        $("#losses").empty();
-        //display starts game at question 1
-        display();
-    })
-}
-
-
-$("#start").on("click", function () {
-    $("#start-cont").empty();
-    display();
-});
+};
 
 
 
 /*
-Need styling and actual questions
+
+To Do:
+
+Clean formatting
+add html questions
+question-specific css positioning
 */
