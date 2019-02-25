@@ -1,13 +1,13 @@
 //object containing trivia questions and answers
 
 var qAndA = [
+    //Questions are property of the lovely Ivy Morris
     {
         question: '<div class="question-display">What nations population, on average, takes the longest time to eat their meals?</div>',
         guess1: '<div class="guesses" id="spain" answerID="0">Spain</div',
         guess2: '<div class="guesses" id="argentina"answerID="0">Argentina</div>',
         guess3: '<div class="guesses" id="france" answerID="1">France</div>',
         guess4: '<div class="guesses" id="india" answerID="0">India</div>',
-        //display flags here
         img: '<img src="assets/images/france.png" class="flag" alt="french flag">',
         correct: '<p class="answer-display">The correct answer is France.</p>',
     },
@@ -23,18 +23,28 @@ var qAndA = [
     },
 
     {
-        question: '<div class="question-display">This is question 3</div>',
-        guess1: '<div class="guesses" answerID="0">This is answer one, question 3</div>',
-        guess2: '<div class="guesses" answerID="0">This is answer two, question 3</div>',
-        guess3: '<div class="guesses" answerID="1">This is answer three, question 3</div>',
-        guess4: '<div class="guesses" answerID="0">This is answer four, question 3</div>',
-        img: '<img src="https://placehold.it/250" alt="image">',
-        correct: '<div class="answer-display">The answer is three</div',
+        question: '<div class="question-display">10,000 Yen might seem like a lot, but it’s really only about $90 in this country.</div>',
+        guess1: '<div class="guesses" id="australia" answerID="0">Australia</div>',
+        guess2: '<div class="guesses" id="vietnam" answerID="0">Vietnam</div>',
+        guess3: '<div class="guesses" id="japan" answerID="1">Japan</div>',
+        guess4: '<div class="guesses" id="bangladesh" answerID="0">Bangladesh</div>',
+        img: '<img src="assets/images/japan.png" class="flag" alt="japanese flag">',
+        correct: '<p class="answer-display">The correct answer is Japan.</p>',
+    },
+
+    {
+        question: '<div class="question-display">You can find Frida Kahlos artwork at the Tucson Botanical Gardens, and at her museum in this countrys capital city.</div>',
+        guess1: '<div class="guesses" id="usa" answerID="0">USA</div>',
+        guess2: '<div class="guesses" id="brazil" answerID="0">Brazil</div>',
+        guess3: '<div class="guesses" id="mexico" answerID="1">Mexico</div>',
+        guess4: '<div class="guesses" id="england" answerID="0">England</div>',
+        img: '<img src="assets/images/mexico.png" class="flag" alt="mexican flag">',
+        correct: '<p class="answer-display">The correct answer is Mexico.</p>',
     },
 ]
 
 //global variables
-var count = 3;
+var count = 30;
 var intervalId;
 var timeoutId;
 var questionNum = 0;
@@ -74,7 +84,7 @@ function startTimer() {
 function answerTimer() {
     timeoutId = setTimeout(display, 5000);
     clearInterval(intervalId);
-    count = 3;
+    count = 30;
 };
 
 //function to display last screen
@@ -86,14 +96,14 @@ function displayFinalScore() {
     $("#questions").empty()
     $("#answers").empty();
     //insert wins
-    $("#wins").html("<p>You guessed " + win + " answers correctly</p>")
+    $("#wins").html("<p>" + win + " answers were correct.</p>")
     //insert losses
-    $("#losses").html("<p>You guessed " + loss + " answers incorrectly</p>")
+    $("#losses").html("<p>" + loss + " answers were incorrect.</p>")
     //clearInterval clearTimeout
     clearTimeout(timeoutId);
     clearInterval(intervalId);
     //insert restartGame() functionality and display restart button
-    $("#restart").html('<button id="restart-btn">RESTART</button>');
+    $("#restart").html('<button id="restart-btn">Keep Exploring</button>');
     restartGame();
 };
 
