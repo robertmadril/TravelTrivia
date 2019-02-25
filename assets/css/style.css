@@ -244,3 +244,116 @@ button:hover {
     top: 18%;
     right: 50%;
 }
+
+/* question 5 guesses positioning */
+
+
+#china {
+    position: absolute;
+    top: 25%;
+    right: 19%;
+}
+
+#nigeria {
+    position: absolute;
+    top: 40%;
+    right: 45%;
+}
+
+#canada {
+    position: absolute;
+    top: 10%;
+    left: 18%;
+}
+
+#peru {
+    position: absolute;
+    bottom: 35%;
+    left: 30%;
+}
+
+/* question 6 guesses positioning */
+
+#thailand {
+    position: absolute;
+    top: 40%;
+    right: 18%;
+}
+
+#new-zealand {
+    position: absolute;
+    bottom: 20%;
+    right: 3%;
+}
+
+#cameroon {
+    position: absolute;
+    top: 40%;
+    right: 45%;
+}
+
+#portugal {
+    position: absolute;
+    top: 22%;
+    right: 50%;
+}
+
+/* question 7 guesses positioning */
+
+#singapore {
+    position: absolute;
+    top: 40%;
+    right: 18%;
+}
+
+#ukraine {
+    position: absolute;
+    top: 15%;
+    right: 37%;
+}
+
+#venezuela {
+    position: absolute;
+    bottom: 50%;
+    left: 30%;
+}
+
+#switzerland {
+    position: absolute;
+    top: 20%;
+    right: 42%;
+}
+
+/* question 8 guesses positioning */
+
+#south-africa {
+    position: absolute;
+    bottom: 35%;
+    right: 42%;
+}
+
+#colombia {
+    position: absolute;
+    bottom: 50%;
+    left: 30%;
+}
+
+#yemen {
+    position: absolute;
+    top: 40%;
+    right: 35%;
+}
+
+#greece {
+    position: absolute;
+    top: 25%;
+    right: 40%;
+}
+
+/* test css and html for future questions
+#test {
+    position: absolute;
+    top: 25%;
+    right: 40%;
+}
+ <div class="guesses" id="test" answerID="0">Test</div> */

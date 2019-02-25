@@ -41,6 +41,46 @@ var qAndA = [
         img: '<img src="assets/images/mexico.png" class="flag" alt="mexican flag">',
         correct: '<p class="answer-display">The correct answer is Mexico.</p>',
     },
+
+    {
+        question: '<div class="question-display">The worlds most remote weather station is located in what country?</div>',
+        guess1: '<div class="guesses" id="china" answerID="0">China</div>',
+        guess2: '<div class="guesses" id="nigeria" answerID="0">Nigeria</div>',
+        guess3: '<div class="guesses" id="canada" answerID="1">Canada</div>',
+        guess4: '<div class="guesses" id="peru" answerID="0">Peru</div>',
+        img: '<img src="assets/images/canada.png" class="flag" alt="canadian flag">',
+        correct: '<p class="answer-display">The correct answer is Canada.</p>',
+    },
+
+    {
+        question: '<div class="question-display">Waza National Park is one of the most visited landmarks in this country.</div>',
+        guess1: '<div class="guesses" id="thailand" answerID="0">Thailand</div>',
+        guess2: '<div class="guesses" id="new-zealand" answerID="0">New Zealand</div>',
+        guess3: '<div class="guesses" id="cameroon" answerID="1">Cameroon</div>',
+        guess4: '<div class="guesses" id="portugal" answerID="0">Portugal</div>',
+        img: '<img src="assets/images/cameroon.png" class="flag" alt="cameroonian flag">',
+        correct: '<p class="answer-display">The correct answer is Cameroon.</p>',
+    },
+
+    {
+        question: '<div class="question-display">The Joropo is the national dance of this country.</div>',
+        guess1: '<div class="guesses" id="singapore" answerID="0">Singapore</div>',
+        guess2: '<div class="guesses" id="ukraine" answerID="0">Ukraine</div>',
+        guess3: '<div class="guesses" id="venezuela" answerID="1">Venezuela</div>',
+        guess4: '<div class="guesses" id="switzerland" answerID="0">Switzerland</div>',
+        img: '<img src="assets/images/venezuela.png" class="flag" alt="venezuelan flag">',
+        correct: '<p class="answer-display">The correct answer is Venezuela.</p>',
+    },
+
+    {
+        question: '<div class="question-display">Saltah, a brown stew traditionally served at lunch, is considered the national dish of what country?</div>',
+        guess1: '<div class="guesses" id="south-africa" answerID="0">South Africa</div>',
+        guess2: '<div class="guesses" id="colombia" answerID="0">Colombia</div>',
+        guess3: '<div class="guesses" id="yemen" answerID="1">Yemen</div>',
+        guess4: '<div class="guesses" id="greece" answerID="0">Greece</div>',
+        img: '<img src="assets/images/yemen.png" class="flag" alt="yemen flag">',
+        correct: '<p class="answer-display">The correct answer is Yemen.</p>',
+    },
 ]
 
 //global variables
