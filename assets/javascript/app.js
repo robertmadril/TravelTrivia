@@ -8,18 +8,18 @@ var qAndA = [
         guess3: '<div class="guesses" id="france" answerID="1">France</div>',
         guess4: '<div class="guesses" id="india" answerID="0">India</div>',
         //display flags here
-        img: '<img src="https://placehold.it/150" alt="image">',
-        correct: '<div class="answer-display">The answer is three</div',
+        img: '<img src="assets/images/france.png" class="flag" alt="french flag">',
+        correct: '<p class="answer-display">The correct answer is France.</p>',
     },
 
     {
-        question: '<div class="question-display">This is question 2</div>',
-        guess1: '<div class="guesses" answerID="0">This is answer one, question 2</div>',
-        guess2: '<div class="guesses" answerID="0">This is answer two, question 2</div>',
-        guess3: '<div class="guesses" answerID="1">This is answer three, question 2</div>',
-        guess4: '<div class="guesses" answerID="0">This is answer four, question 2</div>',
-        img: '<img src="https://placehold.it/200" alt="image">',
-        correct: '<div class="answer-display">The answer is three</div',
+        question: '<div class="question-display">You’ll pay for things in ziotys in this country, known for its kielbasas and pierogis.</div>',
+        guess1: '<div class="guesses" id="russia" answerID="0">Russia</div>',
+        guess2: '<div class="guesses" id="japan" answerID="0">Japan</div>',
+        guess3: '<div class="guesses" id="poland" answerID="1">Poland</div>',
+        guess4: '<div class="guesses" id="croatia" answerID="0">Croatia</div>',
+        img: '<img src="assets/images/poland.png" class="flag" alt="polish flag">',
+        correct: '<p class="answer-display">The correct answer is Poland.</p>',
     },
 
     {
@@ -34,7 +34,7 @@ var qAndA = [
 ]
 
 //global variables
-var count = 30;
+var count = 3;
 var intervalId;
 var timeoutId;
 var questionNum = 0;
@@ -48,6 +48,7 @@ function displayAnswer() {
     $("#questions").empty()
     $("#answers").empty();
     $("#answers").html(qAndA[questionNum].img);
+    $("#answers").append(qAndA[questionNum].correct);
     questionNum++;
 };
 
@@ -73,7 +74,7 @@ function startTimer() {
 function answerTimer() {
     timeoutId = setTimeout(display, 5000);
     clearInterval(intervalId);
-    count = 30;
+    count = 3;
 };
 
 //function to display last screen
@@ -161,4 +162,5 @@ To Do:
 
 add html questions/answers
 question-specific css positioning
+
 */

@@ -14,23 +14,32 @@
 </head>
 
 <body>
-    <div id="container">
-        <div id="start-cont">
-            <button id="start">Start Exploring</button>
+
+    <div class="screen">
+        <div id="left-container">
+            <div id="start-cont">
+                <button id="start">Start Exploring</button>
+            </div>
+            <div id="time-cont" class="game-play"></div>
+            <div id="final-screen">
+                <div id="wins" class="final-screen"></div>
+                <div id="losses" class="final-screen"></div>
+                <div id="restart" class="final-screen"></div>
+
+            </div>
         </div>
 
-        <div id="time-cont" class="game-play"></div>
-        <div id="questions" class="game-play"></div>
-        <div id="answers" class="game-play"></div>
-
-        <div id="final-screen">
-            <div id="wins" class="final-screen"></div>
-            <div id="losses" class="final-screen"></div>
-            <div id="restart" class="final-screen"></div>
+        <div id="right-container">
+            
+            <img id="world-map" src="assets/images/world-map.jpg" alt="world map">
+            <div id="title">Travel Trivia</div>
+            <div id="questions" class="game-play"></div>
+            <div id="answers" class="game-play"></div>
 
         </div>
+    </div>
 
-        <script type="text/javascript" src="assets/javascript/app.js"></script>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
 
 </html>
